@@ -1,0 +1,102 @@
+test_1a_inconsistent_effects_mutex (tests.test_my_planning_graph.Test_1_InconsistentEffectsMutex) ... ok
+test_1b_inconsistent_effects_mutex (tests.test_my_planning_graph.Test_1_InconsistentEffectsMutex) ... ok
+test_1c_inconsistent_effects_mutex (tests.test_my_planning_graph.Test_1_InconsistentEffectsMutex) ... ok
+test_1d_inconsistent_effects_mutex (tests.test_my_planning_graph.Test_1_InconsistentEffectsMutex) ... ok
+test_1e_inconsistent_effects_mutex (tests.test_my_planning_graph.Test_1_InconsistentEffectsMutex) ... ok
+test_2a_interference_mutex (tests.test_my_planning_graph.Test_2_InterferenceMutex) ... ok
+test_2b_interference_mutex (tests.test_my_planning_graph.Test_2_InterferenceMutex) ... ok
+test_2c_interference_mutex (tests.test_my_planning_graph.Test_2_InterferenceMutex) ... ok
+test_2d_interference_mutex (tests.test_my_planning_graph.Test_2_InterferenceMutex) ... ok
+test_2e_interference_mutex (tests.test_my_planning_graph.Test_2_InterferenceMutex) ... ok
+test_3a_negation_mutex (tests.test_my_planning_graph.Test_3_NegationMutex) ... ok
+test_3b_negation_mutex (tests.test_my_planning_graph.Test_3_NegationMutex) ... ok
+test_3c_negation_mutex (tests.test_my_planning_graph.Test_3_NegationMutex) ... ok
+test_4a_competing_needs_mutex (tests.test_my_planning_graph.Test_4_CompetingNeedsMutex) ... ok
+test_4b_competing_needs_mutex (tests.test_my_planning_graph.Test_4_CompetingNeedsMutex) ... ok
+test_4c_competing_needs_mutex (tests.test_my_planning_graph.Test_4_CompetingNeedsMutex) ... ok
+test_4d_competing_needs_mutex (tests.test_my_planning_graph.Test_4_CompetingNeedsMutex) ... FAIL
+test_4e_competing_needs_mutex (tests.test_my_planning_graph.Test_4_CompetingNeedsMutex) ... ok
+test_5a_inconsistent_support_mutex (tests.test_my_planning_graph.Test_5_InconsistentSupportMutex) ... FAIL
+test_5b_inconsistent_support_mutex (tests.test_my_planning_graph.Test_5_InconsistentSupportMutex) ... ok
+test_6a_maxlevel (tests.test_my_planning_graph.Test_6_MaxLevelHeuristic) ... ok
+test_6b_maxlevel (tests.test_my_planning_graph.Test_6_MaxLevelHeuristic) ... ok
+test_6c_maxlevel (tests.test_my_planning_graph.Test_6_MaxLevelHeuristic) ... ok
+test_6d_maxlevel (tests.test_my_planning_graph.Test_6_MaxLevelHeuristic) ... ok
+test_6e_maxlevel (tests.test_my_planning_graph.Test_6_MaxLevelHeuristic) ... ok
+test_7a_levelsum (tests.test_my_planning_graph.Test_7_LevelSumHeuristic) ... FAIL
+test_7b_levelsum (tests.test_my_planning_graph.Test_7_LevelSumHeuristic) ... ok
+test_7c_levelsum (tests.test_my_planning_graph.Test_7_LevelSumHeuristic) ... ok
+test_7d_levelsum (tests.test_my_planning_graph.Test_7_LevelSumHeuristic) ... ok
+test_7e_levelsum (tests.test_my_planning_graph.Test_7_LevelSumHeuristic) ... ok
+test_8a_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic) ... FAIL
+test_8b_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic) ... FAIL
+test_8c_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic) ... FAIL
+test_8d_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic) ... FAIL
+test_8e_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic) ... FAIL
+
+======================================================================
+FAIL: test_4d_competing_needs_mutex (tests.test_my_planning_graph.Test_4_CompetingNeedsMutex)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 249, in test_4d_competing_needs_mutex
+    "pair of actions is mutex in the parent layer").format(*acts))
+AssertionError: False is not true : 'FakeAction(A,)' and 'FakeAction(B,)' should be mutually exclusive by competing needs if every pair of actions is mutex in the parent layer
+
+======================================================================
+FAIL: test_5a_inconsistent_support_mutex (tests.test_my_planning_graph.Test_5_InconsistentSupportMutex)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 279, in test_5a_inconsistent_support_mutex
+    """, litA, litB, litA, litlayer.parents[litA], litB, litlayer.parents[litB])
+AssertionError: False is not true :  The literals 'In(C1, P2)' and 'In(C2, P1)' should be mutually exclusive by inconsistent support in the second layer. All of the actions actions that produce 'In(C1, P2)': {Load(C1, P2, SFO)} and all of the actions that produce 'In(C2, P1)': {Load(C2, P1, JFK)} are pairwise mutex in the parent layer.
+
+======================================================================
+FAIL: test_7a_levelsum (tests.test_my_planning_graph.Test_7_LevelSumHeuristic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 326, in test_7a_levelsum
+    self.assertEqual(self.cake_problem.h_pg_levelsum(self.cake_node), 1, self.msg)
+AssertionError: 2 != 1 : Make sure all your mutex tests pass before troubleshooting this function.
+
+======================================================================
+FAIL: test_8a_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 343, in test_8a_setlevel
+    self.assertEqual(self.cake_problem.h_pg_setlevel(self.cake_node), 2, self.msg)
+AssertionError: None != 2 : Make sure all your mutex tests pass before troubleshooting this function.
+
+======================================================================
+FAIL: test_8b_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 346, in test_8b_setlevel
+    self.assertEqual(self.ac_problem_1.h_pg_setlevel(self.ac_node_1), 4, self.msg)
+AssertionError: None != 4 : Make sure all your mutex tests pass before troubleshooting this function.
+
+======================================================================
+FAIL: test_8c_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 349, in test_8c_setlevel
+    self.assertEqual(self.ac_problem_2.h_pg_setlevel(self.ac_node_2), 4, self.msg)
+AssertionError: None != 4 : Make sure all your mutex tests pass before troubleshooting this function.
+
+======================================================================
+FAIL: test_8d_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 352, in test_8d_setlevel
+    self.assertEqual(self.ac_problem_3.h_pg_setlevel(self.ac_node_3), 6, self.msg)
+AssertionError: None != 6 : Make sure all your mutex tests pass before troubleshooting this function.
+
+======================================================================
+FAIL: test_8e_setlevel (tests.test_my_planning_graph.Test_8_SetLevelHeuristic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy.zhang/workspace/Jupyter/AI/artificial-intelligence/Projects/2_Classical Planning/tests/test_my_planning_graph.py", line 355, in test_8e_setlevel
+    self.assertEqual(self.ac_problem_4.h_pg_setlevel(self.ac_node_4), 6, self.msg)
+AssertionError: None != 6 : Make sure all your mutex tests pass before troubleshooting this function.
+
+----------------------------------------------------------------------
+Ran 35 tests in 2.363s
