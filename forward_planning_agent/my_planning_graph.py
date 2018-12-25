@@ -62,12 +62,13 @@ class ActionLayer(BaseActionLayer):
         layers.ActionNode
         layers.BaseLayer.parent_layer
         """
+        # do raw way
         # TODO: implement this function
+        res = []
         for precondA in self.parents[actionA]:
             for precondB in self.parents[actionB]:
-                if ~ precondA == precondB:
-                    return True
-        return False
+                res.append(~ precondA == precondB)
+        return any(res)
 
 
 class LiteralLayer(BaseLiteralLayer):
