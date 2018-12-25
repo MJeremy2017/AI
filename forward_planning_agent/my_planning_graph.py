@@ -85,15 +85,11 @@ class LiteralLayer(BaseLiteralLayer):
         layers.BaseLayer.parent_layer
         """
         # TODO: implement this function
-        action_layer = self.parent_layer
         mutex_lst = []
         for actionA in self.parents[literalA]:
             for actionB in self.parents[literalB]:
                 # if 2 actions are mutex
-                is_mutex = any([action_layer._inconsistent_effects(actionA, actionB),
-                                action_layer._interference(actionA, actionB),
-                                action_layer._competing_needs(actionA, actionB)])
-                mutex_lst.append(is_mutex)
+                mutex_lst.append(~actionA == actionB)
         # if all actions are mutex
         return all(mutex_lst)
 
